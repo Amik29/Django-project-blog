@@ -20,7 +20,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from user import views as user_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls'), name= 'BlogHome')
+    path('', include('main.urls'), name= 'BlogHome'),
+    path('register/',user_views.register),
 ] + static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
